@@ -1,0 +1,36 @@
+entity_type: Lab
+schema_version: 2
+default_locale: en
+title: 'Managed Container Platform Workshop - Shifting Kubernetes operations, security and efficiency responsibilities with GKE Autopilot'
+description: 'In this lab, you will explore the operational simplicity and resource optimization benefits of GKE Autopilot'
+duration: 120
+max_duration: 120
+credits: 0
+level: introductory
+tags:
+instruction:
+  type: html
+  uri: "instructions/en.md"
+environment:
+  resources:
+    - type: gcp_user
+      id: user_0
+      permissions:
+        - project: project_0
+          roles:
+            - roles/owner
+    - type: gcp_project
+      id: project_0
+      variant: gcp_medium_extra
+      default_region: us-central1
+      ssh_key_user: user_0
+      startup_script:
+        type: qwiklabs
+        path: terraform
+  student_visible_outputs:
+    - label: Open Google Console
+      reference: project_0.console_url
+    - label: GCP Username
+      reference: user_0.username
+    - label: GCP Password
+      reference: user_0.password
